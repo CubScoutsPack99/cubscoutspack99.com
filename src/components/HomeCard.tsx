@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   padding: 10px;
   margin: 10px;
 
+  .card-content {
+    word-wrap: break-word;
+  }
+
   .card-icon {
     display: flex;
     justify-content: center;
@@ -60,7 +64,9 @@ function HomeCard(props: Props) {
         </div>
       </div>
       <div className="card-title">{ title }</div>
-      { children }
+      <div className="card-content">
+        { children }
+      </div>
     </Wrapper>
   )
 }

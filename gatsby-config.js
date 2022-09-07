@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Cub Scouts Pack 99`,
@@ -5,6 +7,18 @@ module.exports = {
     description: "",
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        url: process.env.WP_URL,
+        html: {
+          useGatsbyImage: false,
+        },
+        develop: {
+          hardCacheMediaFiles: true,
+        },
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {

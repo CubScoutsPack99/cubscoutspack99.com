@@ -6,6 +6,8 @@ import HomeCard from '../components/HomeCard'
 import colors from "../colors"
 import { generatePhotoPlaceholderURL  } from 'react-placeholder-image'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { graphql } from 'gatsby'
+
 
 const placeholderImageURL = generatePhotoPlaceholderURL(1320, 400);
 
@@ -63,7 +65,28 @@ const Wrapper = styled(Layout)`
   }
 `
 
-function Home() {
+export const query = graphql`
+  {
+    allWpFrontPageBlock{
+      edges {
+        node {
+          title
+          content
+          frontPageBlockFields {
+            order
+          }
+        }
+      }
+    }
+  }
+`
+
+
+
+function Home({ data }) {
+
+  const frontPageBlocks = data.allWpFrontPageBlock.edges.map((e: any) => e.node)
+
   return (
     <Wrapper>
       <Container className="home-container hero-container">
@@ -81,36 +104,13 @@ function Home() {
       </Container>
       <Container className="home-container">
         <Row>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
-          <Col md={4}>
-            <HomeCard title="Title" icon={faCoffee}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat. Sed sit amet dolor non turpis aliquam consequat. Phasellus volutpat libero tellus, quis dapibus ligula ultricies eget.
-            </HomeCard>
-          </Col>
+          {frontPageBlocks.map((b, idx) => (
+            <Col md={4} key={`fpb-${idx}`}>
+              <HomeCard title={b.title} icon={faCoffee}>
+                <div dangerouslySetInnerHTML={{__html: b.content}} />
+              </HomeCard>
+            </Col>
+          ))}
         </Row>
       </Container>
       {/* <div className=""> */}

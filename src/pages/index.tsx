@@ -119,22 +119,22 @@ function Home({ data }) {
             <Col md={6} sm={12} className="mx-auto text-center">
               <h2>Questions? Send us a note!</h2>
               <span>We'll get back to you as soon as possible.</span>
-              <Form className="contact-form text-start">
+              <Form name="contact" className="contact-form text-start">
                 <Form.Group className="mb-3">
                   <Form.Label>Name</Form.Label>
-                  <Form.Control type="input" placeholder="Enter name" />
+                  <Form.Control name="name" type="input" placeholder="Enter name" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Phone Number</Form.Label>
-                  <Form.Control type="input" placeholder="Enter phone number" />
+                  <Form.Control name="phone" type="input" placeholder="Enter phone number" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control name="email" type="email" placeholder="Enter email" />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label>Message</Form.Label>
-                  <Form.Control as="textarea" rows={5} placeholder="Enter message" />
+                  <Form.Control name="message" as="textarea" rows={5} placeholder="Enter message" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                   Submit

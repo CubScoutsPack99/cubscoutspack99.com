@@ -119,7 +119,7 @@ function Home({ data }) {
             <Col md={6} sm={12} className="mx-auto text-center">
               <h2>Questions? Send us a note!</h2>
               <span>We'll get back to you as soon as possible.</span>
-              <Form name="contact" className="contact-form text-start">
+              <Form name="contact" className="contact-form text-start" data-netlify="true">
                 <Form.Group className="mb-3">
                   <Form.Label>Name</Form.Label>
                   <Form.Control name="name" type="input" placeholder="Enter name" />
@@ -136,6 +136,7 @@ function Home({ data }) {
                   <Form.Label>Message</Form.Label>
                   <Form.Control name="message" as="textarea" rows={5} placeholder="Enter message" />
                 </Form.Group>
+                <input type="hidden" name="form-name" value="contact" />
                 <Button variant="primary" type="submit">
                   Submit
                 </Button>

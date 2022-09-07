@@ -97,7 +97,7 @@ function Home({ data }) {
               Join Today!
             </h1>
             <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a nibh id sapien ornare feugiat.
+            Under “Join Today”… Pack 99 takes new scouts all the time. Boys and Girls both welcome anytime and we are active all year round. Apply now <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-702paa0099&_gl=1*17jf5v7*_ga*MzQ5MTIzODgwLjE1NTU1NTAzNjk.*_ga_20G0JHESG4*MTY1OTIwNTc4MS4zMS4xLjE2NTkyMDU3ODYuNTU.&_ga=2.198823084.2025299384.1659132899-349123880.1555550369">HERE</a> or for more information, please email <a href="mailto:info@cubscoutpack99.com">info@cubscoutpack99.com</a>.
             </div>
           </div>
         </div>

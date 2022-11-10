@@ -37,6 +37,10 @@ const Wrapper = styled(Layout)`
       color: ${colors.textLight};
       padding: 10px;
       border-radius: 0px 5px 5px 0px;
+
+      a {
+        color: white;
+      }
     }
 
     .hero-title {
@@ -84,7 +88,6 @@ export const query = graphql`
 
 
 function Home({ data }) {
-
   const frontPageBlocks = data.allWpFrontPageBlock.edges.map((e: any) => e.node)
 
   return (

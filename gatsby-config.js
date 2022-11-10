@@ -3,7 +3,7 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Cub Scouts Pack 99`,
-    siteUrl: `https://www.cubscoutspack99.com/`,
+    siteUrl: `https://cubscoutpack99.com/`,
     description: "",
   },
   plugins: [

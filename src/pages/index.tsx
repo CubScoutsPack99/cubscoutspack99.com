@@ -4,12 +4,8 @@ import styled from 'styled-components'
 import { Col, Container, Row, Image, Form, Button } from 'react-bootstrap'
 import HomeCard from '../components/HomeCard'
 import colors from "../colors"
-import { generatePhotoPlaceholderURL  } from 'react-placeholder-image'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { graphql } from 'gatsby'
-
-
-const placeholderImageURL = generatePhotoPlaceholderURL(1320, 400);
 
 const Wrapper = styled(Layout)`
   .home-container {
@@ -23,7 +19,9 @@ const Wrapper = styled(Layout)`
 
     .hero-content-wrapper {
       margin: 0px 10px;
-      background: url(${placeholderImageURL});
+      background: url('/img/scouts-img.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       align-items: end;
@@ -67,6 +65,12 @@ const Wrapper = styled(Layout)`
       margin: 0px 10px;
     }
   }
+
+  @media screen and (min-width: 960px) {
+    .hero-content-wrapper {
+      background-position-y: -250px !important;
+    }
+  }
 `
 
 export const query = graphql`
@@ -94,6 +98,7 @@ function Home({ data }) {
     <Wrapper>
       <Container className="home-container hero-container">
         {/* <Image className="hero-image" fluid src={placeholderImageURL} /> */}
+        {/* <Image className="hero-image" fluid src="/img/scouts-img.jpg" /> */}
         <div className="hero-content-wrapper">
           <div className="hero-content">
             <h1 className="hero-title">

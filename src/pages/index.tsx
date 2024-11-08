@@ -5,7 +5,6 @@ import { Col, Container, Row, Image, Form, Button } from 'react-bootstrap'
 import HomeCard from '../components/HomeCard'
 import colors from "../colors"
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { graphql } from 'gatsby'
 
 const Wrapper = styled(Layout)`
   .home-container {
@@ -73,26 +72,33 @@ const Wrapper = styled(Layout)`
   }
 `
 
-export const query = graphql`
-  {
-    allWpFrontPageBlock{
-      edges {
-        node {
-          title
-          content
-          frontPageBlockFields {
-            order
-          }
-        }
-      }
+function Home() {
+  const frontPageBlocks = [
+    {
+      title: "Volunteer",
+      content: "All cub scout packs are led by parent volunteers who prescribe the age-old Cub Scout Motto: “Do Your Best”. As kids grow out of scouts there is a constant need for parents to step in and help out. To see how you can help, or just to listen in on a parent leader meeting, email <a href=\"mailto:info@cubscoutpack99.com\">info@cubscoutpack99.com</a>",
+    },
+    {
+      title: "Rainbow Council",
+      content: "In addition to Pack and Den Events, we’re part of Rainbow Council which offers a variety of other events and campouts throughout the year. They own Rainbow Scout Reservation in Morris, which has terrific summer campouts and day-camps. They also have other opportunities on the calendar <a href=\"https://rainbowcouncil.org/calendar/\">here</a>.",
+    },
+    {
+      title: "Annual Costs",
+      content: "Costs change a bit every year based on committee decisions and BSA insurance requirements but are usually between $200-$250 per year. This can be paid directly or worked through a number of fundraisers participated in such as selling popcorn, gift cards, beef jerky or other fundraisers the pack offers to families.",
+    },
+    {
+      title: "Den Meetings",
+      content: "Cub Scouts separates the whole pack into grade-level dens which can meet between 1-3 times per month. The kids work on rank requirements and adventures during these meetings in their smaller groups and can form life-long friendships.",
+    },
+    {
+      title: "Pack Outings",
+      content: "In addition to routine Pack Nights, we have Cubmaster series hikes 4-6 times a year at different preserves. We also have 2 or 3 overnight events throughout the year as determined by Pack Committee. These are always at fun places like ballparks, orchards, museums, zoos, and other exciting spots.",
+    },
+    {
+      title: "Pack Nights",
+      content: "During the school year Pack meets once a month from September through May. Most of the time we meet at Riverview Gym on Friday evenings, but that sometimes changes based on events like Pinewood Derby, Cub Mobile Races, Blue & Gold Banquet, and Crossover Campout.",
     }
-  }
-`
-
-
-
-function Home({ data }) {
-  const frontPageBlocks = data.allWpFrontPageBlock.edges.map((e: any) => e.node)
+  ]
 
   return (
     <Wrapper>
